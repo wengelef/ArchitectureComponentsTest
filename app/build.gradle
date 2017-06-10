@@ -7,6 +7,9 @@ apply plugin: 'kotlin-kapt'
 
 def supportLibVersion = '25.3.1'
 
+def archLifecycleVersion = "1.0.0-alpha1"
+def archRoomVersion = "1.0.0-alpha1"
+
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
@@ -35,13 +38,18 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
 
+    compile "android.arch.lifecycle:extensions:$archLifecycleVersion"
+    compile "android.arch.persistence.room:runtime:$archRoomVersion"
+    kapt "android.arch.lifecycle:compiler:$archLifecycleVersion"
+    kapt "android.arch.persistence.room:compiler:$archRoomVersion"
+
     // Timber
     compile 'com.jakewharton.timber:timber:4.1.2'
 
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
     // Glide
-    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.github.bumptech.glide:glide:3.8.0'
 
     // Support Design Library
     compile "com.android.support:design:$supportLibVersion"
@@ -54,18 +62,16 @@ dependencies {
     compile 'com.squareup.retrofit2:adapter-rxjava:2.2.0'
     compile 'com.squareup.okhttp3:logging-interceptor:3.7.0'
 
-    kapt 'com.android.databinding:compiler:2.3.1'
-
     // RxAndroid
-    compile 'io.reactivex:rxandroid:1.2.0'
-    compile 'io.reactivex:rxjava:1.1.5'
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'io.reactivex:rxjava:1.2.3'
     compile 'com.jakewharton.rxbinding:rxbinding-kotlin:1.0.1'
     compile 'com.jakewharton.rxbinding:rxbinding-support-v4-kotlin:1.0.1'
     compile 'com.jakewharton.rxrelay:rxrelay:1.2.0'
 
     // Dagger
-    kapt 'com.google.dagger:dagger-compiler:2.4'
-    compile 'com.google.dagger:dagger:2.4'
+    kapt 'com.google.dagger:dagger-compiler:2.7'
+    compile 'com.google.dagger:dagger:2.7'
     provided 'org.glassfish:javax.annotation:10.0-b28'
 
     // Multidexing

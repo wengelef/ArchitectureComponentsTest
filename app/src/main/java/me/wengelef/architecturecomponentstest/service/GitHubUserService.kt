@@ -1,0 +1,3 @@
+package me.wengelef.architecturecomponentstest.service
+
+interface GitHubUserService

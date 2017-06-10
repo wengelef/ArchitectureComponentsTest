@@ -1,9 +1,13 @@
 package me.wengelef.architecturecomponentstest
 
-import android.support.v7.app.AppCompatActivity
+import android.arch.lifecycle.LifecycleActivity
 import android.os.Bundle
+import me.wengelef.architecturecomponentstest.service.GithubRepoService
+import javax.inject.Inject
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : LifecycleActivity() {
+
+    @Inject lateinit var repoService: GithubRepoService
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
